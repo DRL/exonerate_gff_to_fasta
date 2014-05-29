@@ -21,7 +21,9 @@ def parse_gff_to_dict(filename):
 				qt_re = re.compile(r"-q\s(\S+).+-t\s(\S+)")
 				query_file, target_file = re.search(qt_re, exonerate_cmd).group(1,2)
 				gff_dict[query_file+'_'+target_file]={}
-				gff_dict[query_file+'_'+target_file]['hit']=0
+				gff_dict[query_file+'_'+target_file]['query_file'] = query_file
+				gff_dict[query_file+'_'+target_file]['target_file'] = target_file
+				gff_dict[query_file+'_'+target_file]['hit'] = 0
 			elif line.startswith("Hostname"):
 				continue
 			elif line.startswith("vulgar:"):
@@ -50,7 +52,8 @@ def parse_gff_to_dict(filename):
 def export_files(gff_dict):
 	for record in gff_dict:
 		if gff_dict[record]['hit'] == 1:
-			
+			dna_file = gff_dict[record]['target_file'] 
+			dna = '' 
 			base_file = gff_dict[record]['target_id']
 			gff_file = base_file + '.gff'
 			exon_file = base_file + '.exons.fa'
@@ -58,6 +61,12 @@ def export_files(gff_dict):
 			aa_file = base_file + '.aa.fa'
 			gff_string = gff_dict[record]['gff']
 			gff_lines = gff_string.split('\n')
+
+			with open(dna_file) as fh:
+				for line in fh:
+					if not line.startswith('>'):
+						dna += line.rstrip('\n')
+
 			for line in gff_lines:
 				if not line.startswith('#'):
 					line = re.sub(r"\s{2,}", " ", line)
