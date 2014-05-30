@@ -1,51 +1,6 @@
-Command line: [/exports/software/exonerate/exonerate-2.2.0/bin/exonerate --exhaustive TRUE --showtargetgff TRUE --showalignment no --model protein2genome:bestfit -q GPLIN_000008300.ERR114517.contigs.3.fa -t GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.-.fa]
-Hostname: [bigfoot.bio.ed.ac.uk]
-vulgar: GPLIN_000008300.ERR114517.contigs.3.fa 0 399 . GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000 1264 2 - 304 M 2 6 G 11 0 M 44 132 G 3 0 M 60 180 G 3 0 M 89 267 G 1 0 M 40 120 S 0 1 5 0 2 I 0 60 3 0 2 S 1 2 M 35 105 S 0 1 5 0 2 I 0 82 3 0 2 S 1 2 M 26 78 S 0 2 5 0 2 I 0 52 3 0 2 S 1 1 M 53 159 G 29 0
-# --- START OF GFF DUMP ---
-#
-#
 ##gff-version 2
 ##source-version exonerate:protein2genome:bestfit 2.2.0
-##date 2014-05-29
-##type DNA
-#
-#
-# seqname source feature start end score strand frame attributes
-#
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        gene    3       1264    304     -       .       gene_id 1 ; sequence GPLIN_000008300.ERR114517.contigs.3.fa ; gene_orientation +
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        cds     559     1264    .       -       .       
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        exon    559     1264    .       -       .       insertions 0 ; deletions 18
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        splice5 557     558     .       -       .       intron_id 1 ; splice_site "GT"
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        intron  495     558     .       -       .       intron_id 1
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        splice3 495     496     .       -       .       intron_id 0 ; splice_site "AG"
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        cds     387     494     .       -       .       
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        exon    387     494     .       -       .       insertions 0 ; deletions 0
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        splice5 385     386     .       -       .       intron_id 2 ; splice_site "GT"
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        intron  301     386     .       -       .       intron_id 2
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        splice3 301     302     .       -       .       intron_id 1 ; splice_site "AG"
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        cds     219     300     .       -       .       
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        exon    219     300     .       -       .       insertions 0 ; deletions 0
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        splice5 217     218     .       -       .       intron_id 3 ; splice_site "GT"
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        intron  163     218     .       -       .       intron_id 3
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        splice3 163     164     .       -       .       intron_id 2 ; splice_site "AG"
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        utr3b   3       2       .       -       .       
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        exon    3       162     .       -       .       insertions 0 ; deletions 29
-GPLIN_000008300.ERR114517.contigs.3.fa.contig_238.5000  exonerate:protein2genome:bestfit        similarity      3       1264    304     -       .       alignment_id 1 ; Query GPLIN_000008300.ERR114517.contigs.3.fa ; Align 1265 1 6 ; Align 1259 14 132 ; Align 1127 61 180 ; Align 947 124 267 ; Align 680 214 120 ; Align 493 255 105 ; Align 299 291 78 ; Align 162 318 159
-# --- END OF GFF DUMP ---
-#
--- completed exonerate analysis
-Command line: [/exports/software/exonerate/exonerate-2.2.0/bin/exonerate --exhaustive TRUE --showtargetgff TRUE --showalignment no --model protein2genome:bestfit -q GPLIN_000008400.ERR114517.contigs.3.fa -t GPLIN_000008400.ERR114517.contigs.3.fa.contig_8487.+.fa]
-Hostname: [bigfoot.bio.ed.ac.uk]
--- completed exonerate analysis
-Command line: [/exports/software/exonerate/exonerate-2.2.0/bin/exonerate --exhaustive TRUE --showtargetgff TRUE --showalignment no --model protein2genome:bestfit -q GPLIN_000008700.ERR114517.contigs.3.fa -t GPLIN_000008700.ERR114517.contigs.3.fa.contig_48729.-.fa]
-Hostname: [bigfoot.bio.ed.ac.uk]
-vulgar: GPLIN_000008700.ERR114517.contigs.3.fa 0 318 . GPLIN_000008700.ERR114517.contigs.3.fa.contig_48729.5000 1028 0 - 389 M 54 162 5 0 2 I 0 50 3 0 2 M 43 129 S 0 1 5 0 2 I 0 60 3 0 2 S 1 2 M 25 75 S 0 1 5 0 2 I 0 67 3 0 2 S 1 2 M 35 105 S 0 1 5 0 2 I 0 50 3 0 2 S 1 2 M 32 96 S 0 2 5 0 2 I 0 46 3 0 2 S 1 1 M 14 42 G 5 0 M 21 63 G 1 0 M 17 51 G 67 0
-# --- START OF GFF DUMP ---
-#
-#
-##gff-version 2
-##source-version exonerate:protein2genome:bestfit 2.2.0
-##date 2014-05-29
+##date 2014-05-30
 ##type DNA
 #
 #
@@ -81,5 +36,3 @@ GPLIN_000008700.ERR114517.contigs.3.fa.contig_48729.5000        exonerate:protei
 GPLIN_000008700.ERR114517.contigs.3.fa.contig_48729.5000        exonerate:protein2genome:bestfit        exon    1       157     .       -       .       insertions 0 ; deletions 73
 GPLIN_000008700.ERR114517.contigs.3.fa.contig_48729.5000        exonerate:protein2genome:bestfit        similarity      1       1028    389     -       .       alignment_id 1 ; Query GPLIN_000008700.ERR114517.contigs.3.fa ; Align 1029 1 162 ; Align 813 55 129 ; Align 617 99 75 ; Align 468 125 105 ; Align 306 161 96 ; Align 157 194 42 ; Align 115 213 63 ; Align 52 235 51
 # --- END OF GFF DUMP ---
-#
--- completed exonerate analysis

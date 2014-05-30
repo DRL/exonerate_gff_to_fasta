@@ -1,0 +1,18 @@
+##gff-version 2
+##source-version exonerate:protein2genome:bestfit 2.2.0
+##date 2014-05-30
+##type DNA
+#
+#
+# seqname source feature start end score strand frame attributes
+#
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        gene    7       799     297     +       .       gene_id 1 ; sequence GPLIN_000051600.ERR114517.contigs.3.fa ; gene_orientation +
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        cds     7       607     .       +       .       
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        exon    7       607     .       +       .       insertions 3 ; deletions 4
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        splice5 608     609     .       +       .       intron_id 1 ; splice_site "GT"
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        intron  608     671     .       +       .       intron_id 1
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        splice3 670     671     .       +       .       intron_id 0 ; splice_site "AG"
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        cds     672     799     .       +       .       
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        exon    672     799     .       +       .       insertions 12 ; deletions 0
+GPLIN_000051600.ERR114517.contigs.3.fa.contig_34974.5000        exonerate:protein2genome:bestfit        similarity      7       799     297     +       .       alignment_id 1 ; Query GPLIN_000051600.ERR114517.contigs.3.fa ; Align 7 1 192 ; Align 199 66 126 ; Align 325 109 75 ; Align 403 134 96 ; Align 499 168 108 ; Align 674 205 54 ; Align 737 223 51 ; Align 791 240 9
+# --- END OF GFF DUMP ---

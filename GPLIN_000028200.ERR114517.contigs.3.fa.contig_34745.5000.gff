@@ -1,0 +1,23 @@
+##gff-version 2
+##source-version exonerate:protein2genome:bestfit 2.2.0
+##date 2014-05-30
+##type DNA
+#
+#
+# seqname source feature start end score strand frame attributes
+#
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        gene    155     1449    614     +       .       gene_id 1 ; sequence GPLIN_000028200.ERR114517.contigs.3.fa ; gene_orientation +
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        cds     155     308     .       +       .       
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        exon    155     308     .       +       .       insertions 0 ; deletions 0
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        splice5 309     310     .       +       .       intron_id 1 ; splice_site "GT"
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        intron  309     633     .       +       .       intron_id 1
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        splice3 632     633     .       +       .       intron_id 0 ; splice_site "AG"
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        cds     634     1229    .       +       .       
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        exon    634     1229    .       +       .       insertions 3 ; deletions 1
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        splice5 1230    1231    .       +       .       intron_id 2 ; splice_site "GT"
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        intron  1230    1323    .       +       .       intron_id 2
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        splice3 1322    1323    .       +       .       intron_id 1 ; splice_site "AG"
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        cds     1324    1449    .       +       .       
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        exon    1324    1449    .       +       .       insertions 0 ; deletions 0
+GPLIN_000028200.ERR114517.contigs.3.fa.contig_34745.5000        exonerate:protein2genome:bestfit        similarity      155     1449    614     +       .       alignment_id 1 ; Query GPLIN_000028200.ERR114517.contigs.3.fa ; Align 155 1 153 ; Align 636 53 252 ; Align 891 137 189 ; Align 1080 201 150 ; Align 1324 251 126
+# --- END OF GFF DUMP ---

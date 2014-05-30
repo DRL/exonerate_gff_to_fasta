@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys, re, operator
+import sys, re, operator, subprocess
 
 class exonerate_gff(object):
 	def __init__(self, filename):
@@ -11,11 +11,10 @@ class exonerate_gff(object):
 
 def parse_gff_to_dict(filename):
 	gff_dict = {}
-	query_file, query_id, target_file, target_id, hit, gff_string, gff_flag = '','','','',0,'', 0
+	query_file, query_id, target_file, target_id, hit, gff_string, gff_flag, dna_flag, dna_string, dna_header = '','','','',0,'', 0, 0, '', ''
 	with open(filename) as fh:
 		for line in fh:
 			if line.startswith("Command line:"):
-				query_file, query_id, target_file, target_id, hit, gff_string, gff_flag = '','','','',0,'', 0
 				cmd_re = re.compile(r".+\[(.+)\]")
 				exonerate_cmd = re.match(cmd_re, line).group(1)
 				qt_re = re.compile(r"-q\s(\S+).+-t\s(\S+)")
@@ -24,54 +23,60 @@ def parse_gff_to_dict(filename):
 				gff_dict[query_file+'_'+target_file]['query_file'] = query_file
 				gff_dict[query_file+'_'+target_file]['target_file'] = target_file
 				gff_dict[query_file+'_'+target_file]['hit'] = 0
-			elif line.startswith("Hostname"):
-				continue
-			elif line.startswith("vulgar:"):
-				#query_id, target_id = operator.itemgetter(1,5)(line.split(" "))
+				gff_dict[query_file+'_'+target_file]['dna'] = ''
+				gff_dict[query_file+'_'+target_file]['dna_header'] = ''
+				gff_dict[query_file+'_'+target_file]['gff'] = ''
+			if line.startswith("-- completed exonerate analysis"):
+				dna_flag = 0
+				gff_dict[query_file+'_'+target_file]['dna'] += dna_string
+				gff_dict[query_file+'_'+target_file]['dna_header'] += dna_header
+				gff_dict[query_file+'_'+target_file]['gff'] += gff_string
+				query_file, query_id, target_file, target_id, hit, gff_string, gff_flag, dna_flag, dna_string, dna_header = '','','','',0,'', 0, 0, '', ''
+			if line.startswith("vulgar:"):
 				query_id, target_id = operator.itemgetter(1,5)(line.split(" "))
-				gff_dict[query_file+'_'+target_file]['query_id'], gff_dict[query_file+'_'+target_file]['target_id'] = query_id, target_id
-				#hit = 1
-				gff_dict[query_file+'_'+target_file]['hit']=1
-			elif line.startswith("##gff-version 2"):
+				gff_dict[query_file+'_'+target_file]['query_id'] = query_id
+				gff_dict[query_file+'_'+target_file]['target_id'] = target_id
+				gff_dict[query_file+'_'+target_file]['hit'] = 1 
+			if line.startswith(">"):
+				dna_header = line
+				dna_flag = 1
+			if dna_flag == 1 and not line.startswith(">"):
+				dna_string += line.rstrip("\n")
+			if line.strip() == '':
+				dna_flag = 0
+			if gff_flag == 1 :
+				gff_string += line
+			if line.startswith("##gff-version 2"):
 				gff_flag = 1
 				gff_string += line
-			elif line.startswith("# --- END OF GFF DUMP ---"):
+			if line.startswith("# --- END OF GFF DUMP ---"):
 				gff_flag = 0
-			elif gff_flag == 1:
-				gff_string += line
-				if line.startswith(target_id):
-					columns = line.split('\s{2,}')
-			elif line.startswith("-- completed exonerate analysis"):
-				#print query_file, target_file, hit
-				#print query_id, target_id
-				gff_dict[query_file+'_'+target_file]['gff'] = gff_string
-			else:
-				continue
 	return gff_dict
 
 def export_files(gff_dict):
 	for record in gff_dict:
-		if gff_dict[record]['hit'] == 1:
-			dna_file = gff_dict[record]['target_file'] 
-			dna = '' 
+		if gff_dict[record]['hit'] == 1: 
 			base_file = gff_dict[record]['target_id']
+			
 			gff_file = base_file + '.gff'
-			exon_file = base_file + '.exons.fa'
-			cdna_file = base_file + '.cdna.fa'
-			aa_file = base_file + '.aa.fa'
+			gff_fh = open(gff_file, 'w')
 			gff_string = gff_dict[record]['gff']
-			gff_lines = gff_string.split('\n')
+			gff_fh.write(gff_string)	
+			gff_fh.close()
 
-			with open(dna_file) as fh:
-				for line in fh:
-					if not line.startswith('>'):
-						dna += line.rstrip('\n')
+			dna_file = base_file + '.cds.fa'
+			cds_header = gff_dict[record]['dna_header']
+			cds = gff_dict[record]['dna']
+			cds_fh = open(dna_file, 'w')
+			cds_fh.write(">" + cds_header + cds)
+			cds_fh.close()
+			
+			aa_file = base_file + '.aa.fa'
+			aa_fh = open(aa_file, 'w')
+			aa = subprocess.check_output(" " + self.filename + " -info", stderr=subprocess.STDOUT, shell=True)
+			aa_fh.write()
+			aa_fh.close()
 
-			for line in gff_lines:
-				if not line.startswith('#'):
-					line = re.sub(r"\s{2,}", " ", line)
-					columns = line.split(' ')
-					print columns
 
 
 if __name__ == "__main__":
