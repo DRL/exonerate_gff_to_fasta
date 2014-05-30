@@ -71,11 +71,8 @@ def export_files(gff_dict):
 			cds_fh.write(">" + cds_header + cds)
 			cds_fh.close()
 			
-			aa_file = base_file + '.aa.fa'
-			aa_fh = open(aa_file, 'w')
-			aa = subprocess.check_output(" " + self.filename + " -info", stderr=subprocess.STDOUT, shell=True)
-			aa_fh.write()
-			aa_fh.close()
+			#aa_file = base_file + '.aa.fa'
+			#aa = subprocess.call("/exports/software/emboss/EMBOSS-6.6.0/emboss/transeq" + dna_file + " " + aa_file , shell=True)
 
 
 
